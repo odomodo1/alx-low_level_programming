@@ -1,16 +1,16 @@
 #include <stdio.h>
 
 /**
- * main - prints the alphabet using lower case
+ * main - prints the alphabet in lowercase
  * Return: Always 0
  */
 int main(void)
 {
-	char cl;
+	char lc;
 
-	for (cl = 'a'; cl <= 'z'; cl++)
+	for (lc = 'a'; lc <= 'z'; lc++)
 	{
-		putcher(cl);
+		putcher(lc);
 	}
 	putcher('\n');
 	return (0);
