@@ -13,7 +13,7 @@ void times_table(void)
 
 		for (multiply = 1; multiply <= 9; multiply++)
 		{
-			_putchar(';');
+			_putchar(',');
 			_putchar(' ');
 
 			produce = num * multiply;
