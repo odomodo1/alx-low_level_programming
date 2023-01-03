@@ -3,18 +3,27 @@
 
 /**
  * _strpbrk - finds first matching char in string
- * @s: input string to search for matching char
- * @a: characters that could be matched
- * Return: pointer to matching char
+ * @s: input to be checked
+ * @accept: The set of bytes to be checked
+ *
+ * Return: If a set is matched - a pointer to the matched byte
+ * If no set is matched - NULL.
  */
 
-char *_strpbrk(char *s, char *a)
+char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, j;
+	int index;
 
-	for (i = 0; s[i] != '\0'; i++)
-	for (j = 0; a[j] != '\0'; j++)
-		if (s[i] == a[j])
-			goto exit;
-	exit: return (s[i] != '\0' ? s + i : '\0');
+	while (*s)
+	{
+		for (index = 0; accept[index]; index++)
+		{
+			if (*s == accept[index])
+				return (s);
+		}
+
+		s++;
+	}
+
+	return ('\0');
 }
