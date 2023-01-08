@@ -1,34 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
  * main - main function
  * @argc: argument count.
  * @argv: argument vector, array of strings.
- * Description: If there is a character it prints error if not it adds it.
- * Return: 1 or 0
+ * Return: 0 - success.
  */
 
 int main(int argc, char *argv[])
 {
-	int sum, k;
-	char *i;
-	int num;
+	int k, i, add 0;
 
-	sum = 0;
-	if (argc > 1)
+	for (k = 1; k < argc; k++)
 	{
-		for (k = 1; argv[k]; k++)
+		for (i = 0; argv[k][i] != '\0'; i++)
 		{
-			num = strtol(argv[k], &i, 10);
-			if (!*i)
-				sum += num;
-			else
+
+			if (!isdigit(argv[k][i]))
 			{
 				printf("Error\n");
 				return (1);
 			}
 		}
+		sum += atoi(argv[k]);
 	}
 	printf("%d\n", sum);
 	return (0);
