@@ -35,10 +35,9 @@ char *argstostr(int ac, char **av)
 		for (p = 0; av[n][p] != '\0'; p++)
 		{
 			str[m] = av[n][p];
-			m++;
+
 		}
 		str[m] = '\n';
-		m++;
 	}
 
 	return (str);
