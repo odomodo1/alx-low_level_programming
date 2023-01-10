@@ -2,44 +2,39 @@
 #include <stdlib.h>
 
 /**
- * *argstostr - concatenates all the arguments of the program
- * @ac: number of arguments
- * @av: array of arguments
+ * *argstostr - main entry
+ * @ac: int input
+ * @av: double pointer array
  *
- * Return: Pointer to the new string (Success), NULL (Error)
+ * Return: 0
  */
 char *argstostr(int ac, char **av)
 {
-	int n, p, m, len;
+	int n, p, r = 0, c = 0;
 	char *str;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
 	for (n = 0; n < ac; n++)
 	{
-		for (p = 0; av[n][p] != '\0'; p++)
-			len++;
-		len++;
+		for (p = 0; av[n][p]; p++)
+			c++;
 	}
-
-	str = malloc(sizeof(char) * (len + 1));
-
+	c += ac;
+	str = malloc(sizeof(char) * c + 1);
 	if (str == NULL)
 		return (NULL);
-
-	m = 0;
-
 	for (n = 0; n < ac; n++)
 	{
-		for (p = 0; av[n][p] != '\0'; p++)
+		for (p = 0; av[n][p]; p++)
 		{
-			str[m] = av[n][p];
-			m++;
+			str[r] = av[n][p];
+			r++;
 		}
-		str[m] = '\n';
-		m++;
+		if (str[r] == '\0')
+		{
+			str[r++] = '\n';
+		}
 	}
-
 	return (str);
 }
