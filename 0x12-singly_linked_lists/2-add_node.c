@@ -3,7 +3,7 @@
 
 /**
  * add_node - Adds a new node at the beginning
- *            of a list_t list.
+ * of a list_t list.
  * @head: A pointer to the head of the list_t list.
  * @str: The string to be added to the list_t list.
  *
@@ -14,7 +14,7 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new;
 	char *dup_str;
-	int pi;
+	int len;
 
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
@@ -27,11 +27,11 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	for (pi = 0; str[pi];)
-		pi++;
+	for (len = 0; str[len];)
+		len++;
 
 	new->str = dup_str;
-	new->pi = pi;
+	new->len = len;
 	new->next = *head;
 
 	*head = new;
